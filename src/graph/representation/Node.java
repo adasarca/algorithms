@@ -4,17 +4,17 @@
  */
 package graph.representation;
 
-public class Edge {
-    private int node;
+public class Node {
+    private int value;
     private int cost;
 
-    public Edge(int node, int cost) {
-        this.node = node;
+    public Node(int value, int cost) {
+        this.value = value;
         this.cost = cost;
     }
 
-    public int getNode() {
-        return node;
+    public int getValue() {
+        return value;
     }
 
     public int getCost() {

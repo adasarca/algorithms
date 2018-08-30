@@ -8,7 +8,7 @@ import java.util.LinkedList;
 
 public class WeightedListGraph {
     private int n;
-    private LinkedList<Edge>[] adj;
+    private LinkedList<Node>[] adj;
     private boolean directed;
 
     public WeightedListGraph(int n, boolean directed) {
@@ -25,17 +25,17 @@ public class WeightedListGraph {
             return;
         }
 
-        this.adj[x].add(new Edge(y, weight));
+        this.adj[x].add(new Node(y, weight));
         if (!this.directed) {
-            adj[y].add(new Edge(x, weight));
+            adj[y].add(new Node(x, weight));
         }
     }
 
     public void print() {
         for (int i = 0; i < n; i++) {
             System.out.print(i + ": ");
-            for (Edge edge : this.adj[i]) {
-                System.out.print(edge.getNode() + " (" + edge.getCost() + ") ");
+            for (Node node : this.adj[i]) {
+                System.out.print(node.getValue() + " (" + node.getCost() + ") ");
             }
             System.out.println();
         }
