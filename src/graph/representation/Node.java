@@ -4,7 +4,7 @@
  */
 package graph.representation;
 
-public class Node {
+public class Node implements Comparable<Node> {
     private int value;
     private int cost;
 
@@ -19,5 +19,10 @@ public class Node {
 
     public int getCost() {
         return cost;
+    }
+
+    @Override
+    public int compareTo(Node that) {
+        return this.cost - that.cost;
     }
 }
