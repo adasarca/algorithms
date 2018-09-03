@@ -23,6 +23,20 @@ public class LevelOrder {
         }
     }
 
+    public void traverseLevel(GenericNode node, int level) {
+        if (level <= 0) {
+            return;
+        }
+
+        if (level == 1) {
+            System.out.print(node.getValue() + " ");
+        }
+
+        for (GenericNode child : node.getChildren()) {
+            traverseLevel(child, level - 1);
+        }
+    }
+
     public static void main(String[] args) {
         GenericNode node0 = new GenericNode(0);
         GenericNode node1 = new GenericNode(1);
@@ -39,5 +53,9 @@ public class LevelOrder {
 
         LevelOrder levelOrder = new LevelOrder();
         levelOrder.traverse(node0);
+        System.out.println();
+
+        System.out.print("Level 3: ");
+        levelOrder.traverseLevel(node0, 3);
     }
 }
