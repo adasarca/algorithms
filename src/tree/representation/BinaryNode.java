@@ -13,6 +13,10 @@ public class BinaryNode {
         return value;
     }
 
+    public void setValue(int value) {
+        this.value = value;
+    }
+
     public BinaryNode getLeft() {
         return left;
     }
