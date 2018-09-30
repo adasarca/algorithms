@@ -16,18 +16,18 @@ public class DisjointSets {
     }
 
     public void union(int x, int y) {
-        int setX = this.find(x);
-        int setY = this.find(y);
-        if (setX == setY) {
+        int rootX = this.find(x);
+        int rootY = this.find(y);
+        if (rootX == rootY) {
             return;
         }
 
-        if (this.rank[setX] > this.rank[setY]) {
-            this.parent[setY] = setX;
+        if (this.rank[rootX] > this.rank[rootY]) {
+            this.parent[rootY] = rootX;
         } else {
-            this.parent[setX] = setY;
-            if (this.rank[setX] == this.rank[setY]) {
-                this.rank[setY]++;
+            this.parent[rootX] = rootY;
+            if (this.rank[rootX] == this.rank[rootY]) {
+                this.rank[rootY]++;
             }
         }
     }
