@@ -11,8 +11,8 @@ public class LowestCommonMultiple {
             return 0;
         }
 
-        GreatestCommonDivisor divisor = new GreatestCommonDivisor();
-        int gcd = divisor.euclid(a, b);
+        GreatestCommonDivisor greatestCommonDivisor = new GreatestCommonDivisor();
+        int gcd = greatestCommonDivisor.euclid(a, b);
         return a * (b / gcd);
     }
 
@@ -20,6 +20,6 @@ public class LowestCommonMultiple {
         int a = 15;
         int b = 12;
         LowestCommonMultiple lcm = new LowestCommonMultiple();
-        System.out.println(String.format("Lowest commong multiple for %d and %d is %d", a, b, lcm.lcm(a, b)));
+        System.out.println(String.format("Lowest common multiple for %d and %d is %d", a, b, lcm.lcm(a, b)));
     }
 }
