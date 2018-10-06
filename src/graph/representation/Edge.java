@@ -4,7 +4,7 @@
  */
 package graph.representation;
 
-public class Edge {
+public class Edge implements Comparable<Edge> {
     private int from;
     private int to;
     private int cost;
@@ -25,5 +25,10 @@ public class Edge {
 
     public int getCost() {
         return cost;
+    }
+
+    @Override
+    public int compareTo(Edge that) {
+        return this.cost - that.cost;
     }
 }
