@@ -27,13 +27,13 @@ public class CommonSubsequence {
         }
 
         //build solution
-        String solution = "";
+        StringBuilder solution = new StringBuilder();
         int i = n, j = m;
         while (i > 0 && j > 0) {
             char x = str1.charAt(i - 1);
             char y = str2.charAt(j - 1);
             if (x == y) {
-                solution = x + solution;
+                solution.insert(0, x);
                 i--;
                 j--;
             } else if (dp[i - 1][j] > dp[i][j - 1]) {
@@ -42,7 +42,7 @@ public class CommonSubsequence {
                 j--;
             }
         }
-        return solution;
+        return solution.toString();
     }
 
     private int max (int a, int b) {
