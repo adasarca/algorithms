@@ -13,9 +13,9 @@ public class IncreasingSubsequence {
         int n = a.length;
         int[] dp = new int[n];
         int[] pre = new int[n];
+        int maxi = 0;
 
         //compute dp
-        int maxi = 0;
         for (int i = 0; i < n; i++) {
             dp[i] = 1;
             pre[i] = -1;
@@ -31,10 +31,11 @@ public class IncreasingSubsequence {
         }
 
         //build solution
-        int[] solution = new int[dp[maxi]];
+        int k = dp[maxi];
+        int[] solution = new int[k];
         int i = maxi;
-        while (i != -1) {
-            solution[dp[i] - 1] = a[i];
+        while (i > -1) {
+            solution[--k] = a[i];
             i = pre[i];
         }
         return solution;

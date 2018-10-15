@@ -23,13 +23,12 @@ public class ExpressionEvaluation {
 
             //found number, push it to value stack
             if (Character.isDigit(chars[i])) {
-                String number = String.valueOf(chars[i]);
+                int number = chars[i] - '0';
                 while(i < n - 1 && Character.isDigit(chars[i + 1])) {
-                    number += chars[++i];
+                    number *= 10;
+                    number += chars[++i] - '0';
                 };
-
-                int value = this.convertInt(number);
-                values.push(value);
+                values.push(number);
                 continue;
             }
 
@@ -50,7 +49,7 @@ public class ExpressionEvaluation {
                 continue;
             }
 
-            //found operator, calculate previous operations if their precedence is higher, then add operator to stack
+            //found operator, calculate previous operations if their precedence is greater or equal, then add operator to stack
             Character operator = operators.peek();
             while (operator != null && this.precedence(operator) >= this.precedence(chars[i])) {
                 this.calculateNext(values, operators);
@@ -111,15 +110,6 @@ public class ExpressionEvaluation {
                 return 2;
         }
         return 0;
-    }
-
-    private int convertInt(String number) {
-        try {
-            return Integer.parseInt(number);
-        } catch (NumberFormatException exception) {
-            exception.printStackTrace();
-            return 0;
-        }
     }
 
     public static void main(String[] args) {
