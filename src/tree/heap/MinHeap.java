@@ -37,7 +37,7 @@ public class MinHeap {
         if (this.size == 0 || key < 0 || key >= this.size) {
             return;
         }
-        if (this.size == 1) {
+        if (key == this.size - 1) {
             this.size--;
             return;
         }
@@ -126,5 +126,9 @@ public class MinHeap {
 
         System.out.println("Get minimum:");
         System.out.println(minHeap.getMin());
+
+        System.out.println("Removing last element...");
+        minHeap.deleteKey(7);
+        minHeap.print();
     }
 }
