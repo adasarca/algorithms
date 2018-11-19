@@ -28,6 +28,15 @@ public class Edge implements Comparable<Edge> {
     }
 
     @Override
+    public String toString() {
+        return "Edge {" +
+                "from=" + from +
+                ", to=" + to +
+                ", cost=" + cost +
+                '}';
+    }
+
+    @Override
     public int compareTo(Edge that) {
         return this.cost - that.cost;
     }
