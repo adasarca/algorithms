@@ -6,7 +6,7 @@ package tree.search;
 
 import tree.representation.BinaryNode;
 
-public class BinarySearchTree {
+public class BinarySearchTree { //todo: improve replaceWithSuccess from recap
 
     private BinaryNode root;
 
