@@ -1,18 +1,34 @@
-package tree.heap;
+/**
+ * Created by Ada.Sarca
+ * Date: 11/20/2018
+ */
+package recap;
+/*
+* children(x) = 2*x + 1, 2*x + 2
+* parent(x) =
+* */
+public class MinHeap {
 
-public class MinHeap { //todo: start heap from 1 like in recap
     private int capacity;
     private int size;
     private int[] heap;
 
     public MinHeap(int capacity) {
         this.capacity = capacity;
-        this.heap = new int[capacity];
+        this.heap = new int[capacity + 1];
+    }
+
+    public void insert(int value) {
+        if (this.size == this.capacity) {
+            return;
+        }
+        this.heap[++this.size] = value;
+        this.heapifyUp(this.size);
     }
 
     public Integer getMin() {
         if (this.size > 0) {
-            return this.heap[0];
+            return this.heap[1];
         }
         return null;
     }
@@ -21,56 +37,51 @@ public class MinHeap { //todo: start heap from 1 like in recap
         if (this.size == 0) {
             return null;
         }
-        int min = this.heap[0];
-        this.deleteKey(0);
+        int min = this.heap[1];
+        this.deleteKey(1);
         return min;
     }
 
-    public void insert(int value) {
-        if (this.size < this.capacity) {
-            this.heap[this.size++] = value;
-            this.heapifyUp(this.size - 1);
-        }
-    }
-
-    public void deleteKey(int key) {
-        if (this.size == 0 || key < 0 || key >= this.size) {
+    public void deleteKey(int pos) {
+        if (pos < 1 || pos > this.size) {
             return;
         }
-        if (key == this.size - 1) {
+        if (pos == this.size) {
             this.size--;
             return;
         }
 
-        this.swap(key, this.size - 1);
+        this.swap(pos, this.size);
         this.size--;
-        if (key == 0 || this.heap[key/2] < this.heap[key]) {
-            this.heapifyDown(key);
+
+        if (pos > 1 && this.heap[pos] < this.heap[pos/2]) {
+            this.heapifyUp(pos);
         } else {
-            this.heapifyUp(key);
+            this.heapifyDown(pos);
         }
     }
 
     public void print() {
-        System.out.print("Min Heap: ");
-        for (int i = 0; i < this.size; i++) {
+        for (int i = 1; i <= this.size; i++) {
             System.out.print(this.heap[i] + " ");
         }
         System.out.println();
     }
 
     private void heapifyUp(int pos) {
-        while (pos > 0 && this.heap[pos/2] > this.heap[pos]) {
-            this.swap(pos, pos/2);
-            pos /= 2;
+        int parent = pos/2;
+        if (pos == 1 || this.heap[parent] <= this.heap[pos]) {
+            return;
         }
+        this.swap(pos, parent);
+        this.heapifyUp(parent);
     }
 
     private void heapifyDown(int pos) {
         int min = pos;
-        for (int i = 1; i <= 2; i++) {
-            int child = pos * 2 + i;
-            if (child < this.size && this.heap[child] < this.heap[min]) {
+        for (int i = 0; i < 2; i++) {
+            int child = 2 * pos + i;
+            if (child <= this.size && this.heap[child] < this.heap[min]) {
                 min = child;
             }
         }
@@ -80,10 +91,10 @@ public class MinHeap { //todo: start heap from 1 like in recap
         }
     }
 
-    private void swap(int i, int j) {
-        int aux = this.heap[i];
-        this.heap[i] = this.heap[j];
-        this.heap[j] = aux;
+    private void swap(int pos1, int pos2) {
+        int aux = this.heap[pos1];
+        this.heap[pos1] = this.heap[pos2];
+        this.heap[pos2] = aux;
     }
 
     public static void main(String[] args) {
@@ -105,7 +116,7 @@ public class MinHeap { //todo: start heap from 1 like in recap
         minHeap.print();
 
         System.out.println("Removing 5th element...");
-        minHeap.deleteKey(4);
+        minHeap.deleteKey(5);
         minHeap.print();
 
         System.out.println("Extracting minimum:");
@@ -128,7 +139,7 @@ public class MinHeap { //todo: start heap from 1 like in recap
         System.out.println(minHeap.getMin());
 
         System.out.println("Removing last element...");
-        minHeap.deleteKey(7);
+        minHeap.deleteKey(8);
         minHeap.print();
     }
 }
