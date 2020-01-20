@@ -2,7 +2,7 @@
  * Created by Ada.Sarca
  * Date: 11/20/2018
  */
-package recap;
+package recap.v1;
 /*
 * children(x) = 2*x + 1, 2*x + 2
 * parent(x) =

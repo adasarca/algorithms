@@ -1,4 +1,4 @@
-package recap;
+package recap.v1;
 
 import graph.representation.Node;
 import util.PrintUtil;

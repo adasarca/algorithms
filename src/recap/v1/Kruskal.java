@@ -2,7 +2,7 @@
  * Created by Ada.Sarca
  * Date: 11/19/2018
  */
-package recap;
+package recap.v1;
 
 import graph.representation.Edge;
 

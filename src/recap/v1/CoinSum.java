@@ -1,4 +1,4 @@
-package recap;
+package recap.v1;
 
 /*
 * Having a sum S and an infinite supply of coins M, how many ways to make up S are there?
