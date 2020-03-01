@@ -13,7 +13,7 @@ public class FloydWarshall {
             Arrays.fill(d[i], Integer.MAX_VALUE);
             d[i][i] = 0;
             for (Node node : graph[i]) {
-                d[i][node.id] = node.cost;
+                d[i][node.id] = node.distance;
             }
         }
 
@@ -26,15 +26,5 @@ public class FloydWarshall {
                         d[i][j] = d[i][k] + d[k][j];
 
         return d;
-    }
-
-    public static class Node {
-        int id;
-        int cost;
-
-        public Node(int id, int cost) {
-            this.id = id;
-            this.cost = cost;
-        }
     }
 }

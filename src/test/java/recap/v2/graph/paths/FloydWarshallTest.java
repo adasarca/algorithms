@@ -20,31 +20,31 @@ public class FloydWarshallTest {
     @Test
     public void testDistances() throws Exception {
         //setup
-        List<FloydWarshall.Node>[] graph = new List[6];
+        List<Node>[] graph = new List[6];
         graph[0] = Arrays.asList(
-                new FloydWarshall.Node(1, 9),
-                new FloydWarshall.Node(2, 5));
+                new Node(1, 9),
+                new Node(2, 5));
         graph[1] = Arrays.asList(
-                new FloydWarshall.Node(0, 9),
-                new FloydWarshall.Node(2, 3),
-                new FloydWarshall.Node(3, 5),
-                new FloydWarshall.Node(4, 7));
+                new Node(0, 9),
+                new Node(2, 3),
+                new Node(3, 5),
+                new Node(4, 7));
         graph[2] = Arrays.asList(
-                new FloydWarshall.Node(0, 5),
-                new FloydWarshall.Node(1, 3),
-                new FloydWarshall.Node(3, 10));
+                new Node(0, 5),
+                new Node(1, 3),
+                new Node(3, 10));
         graph[3] = Arrays.asList(
-                new FloydWarshall.Node(1, 5),
-                new FloydWarshall.Node(2, 10),
-                new FloydWarshall.Node(4, 1),
-                new FloydWarshall.Node(5, 4));
+                new Node(1, 5),
+                new Node(2, 10),
+                new Node(4, 1),
+                new Node(5, 4));
         graph[4] = Arrays.asList(
-                new FloydWarshall.Node(1, 7),
-                new FloydWarshall.Node(3, 1),
-                new FloydWarshall.Node(5, 2));
+                new Node(1, 7),
+                new Node(3, 1),
+                new Node(5, 2));
         graph[5] = Arrays.asList(
-                new FloydWarshall.Node(3, 4),
-                new FloydWarshall.Node(4, 2));
+                new Node(3, 4),
+                new Node(4, 2));
 
         int[][] expected = new int[][]{
                 {0, 8, 5, 13, 14, 16},
