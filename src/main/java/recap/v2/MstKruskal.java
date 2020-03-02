@@ -58,8 +58,8 @@ public class MstKruskal {
     }
 
     public static class Node {
-        int id;
-        int cost;
+        public int id;
+        public int cost;
 
         public Node(int id, int cost) {
             this.id = id;
