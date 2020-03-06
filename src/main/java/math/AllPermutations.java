@@ -22,15 +22,15 @@ public class AllPermutations {
             return;
         }
 
+        this.generate(k - 1, a);
         for (int i = 0; i < k - 1; i++) {
-            this.generate(k - 1, a);
             if (k % 2 == 0) {
                 this.swap(a, i, k - 1);
             } else {
-                this.swap(a, 0, k - 1);
+                this.swap(a, 0, k - 1); // to not repeat permutations
             }
+            this.generate(k - 1, a);
         }
-        this.generate(k - 1, a);
     }
 
     private void swap(int[] a, int x, int y) {
